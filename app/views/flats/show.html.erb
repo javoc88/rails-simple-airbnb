@@ -1,0 +1,21 @@
+<h1> <%= @flat.name %> </h1>
+
+<div class="container">
+  <ul>
+    <li><%= @flat.address %></li>
+    <li><%= @flat.description %></li>
+    <li><%= @flat.price_per_night %></li>
+    <li><%= @flat.number_of_guests %></li>
+  </ul>
+</div>
+
+
+<%= simple_form_for @flat do |f| %>
+  <%= f.input :address %>
+  <%= f.input :description %>
+  <%= f.input :price_per_night %>
+  <%= f.input :number_of_guests, collection: 1..20 %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to "Back", root_path, class: "btn btn-primary"%>
